@@ -1,0 +1,70 @@
+{
+  "name": "qdrant-ai-sdk",
+  "version": "0.1.2",
+  "description": "Qdrant tools for the AI SDK. Give agents semantic search and long-term memory backed by Qdrant.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:e2e": "vitest run test/e2e.test.ts",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "@qdrant/js-client-rest": "^1.14.0",
+    "ai": "^7.0.0",
+    "zod": "^3.25.76 || ^4.1.8"
+  },
+  "devDependencies": {
+    "@ai-sdk/provider": "^4.0.38",
+    "@qdrant/js-client-rest": "^1.20.0",
+    "@types/node": "^22.0.0",
+    "ai": "^7.0.173",
+    "prettier": "^3.10.1",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "zod": "^4.1.8"
+  },
+  "keywords": [
+    "qdrant",
+    "ai-sdk",
+    "vercel",
+    "vector-search",
+    "rag",
+    "memory",
+    "agents",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qdrant-labs/qdrant-ai-sdk.git"
+  },
+  "homepage": "https://github.com/qdrant-labs/qdrant-ai-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/qdrant-labs/qdrant-ai-sdk/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
